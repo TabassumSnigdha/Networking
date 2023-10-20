@@ -1,0 +1,48 @@
+Task 2                                                  					       ‘
+
+For ipv4
+
+Edge_Router
+ip route 0.0.0.0 0.0.0.0 s0/0/0
+
+exit
+show ip route
+conf t
+ip route 0.0.0.0 0.0.0.0 s0/0/1 5
+
+exit
+show ip route
+show run 
+
+conf t
+int s0/0/0
+shut
+
+exit
+int s0/0/0
+no shut
+
+PC-A
+tracert 198.0.0.10
+
+
+For ipv6 
+
+Edge_Router
+ipv6 route ::/0 2001:DB8:A:2::1 5
+exit
+show ipv6 route
+show run
+int s0/0/0
+shut
+
+exit
+exit
+show ipv6 route
+
+conf t
+int s0/0/0
+no shut
+
+PC-A
+tracert 200:DB8:F:F::10
